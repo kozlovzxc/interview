@@ -1,0 +1,103 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+      "tslint:recommended"
+  ],
+  "rules": {
+    "eofline": true,
+    "curly": true,
+    "forin": true,
+    "radix": true,
+    "import-spacing": true,
+    "callable-types": true,
+    "class-name": true,
+    "interface-name": false,
+    "label-position": true,
+    "ordered-imports": false,
+    "unified-signatures": true,
+    "typeof-compare": true,
+    "prefer-const": true,
+    "object-literal-sort-keys": false,
+    "arrow-return-shorthand": true,
+    "interface-over-type-literal": true,
+    "no-arg": true,
+    "no-bitwise": true,
+    "no-construct": true,
+    "no-debugger": true,
+    "no-duplicate-super": true,
+    "no-empty": false,
+    "no-empty-interface": true,
+    "no-eval": true,
+    "no-misused-new": true,
+    "no-string-literal": false,
+    "no-string-throw": true,
+    "no-var-keyword": true,
+    "no-shadowed-variable": false,
+    "no-unused-expression": true,
+    "no-trailing-whitespace": true,
+    "no-unnecessary-initializer": true,
+    "no-use-before-declare": true,
+    "no-non-null-assertion": true,
+    "no-switch-case-fall-through": true,
+    "member-access": [true, "no-public"],
+    "indent": [ true, "spaces", 2 ],
+    "quotemark": [ true, "single" ],
+    "import-blacklist": [ true, "rxjs" ],
+    "comment-format": [ true, "check-space" ],
+    "max-line-length": [ true, 140 ],
+    "semicolon": [ true, "always" ],
+    "triple-equals": [ true, "allow-null-check" ],
+    "no-console": [
+      true,
+      "debug",
+      "info",
+      "time",
+      "timeEnd",
+      "trace"
+    ],
+    "one-line": [
+      true,
+      "check-open-brace",
+      "check-catch",
+      "check-else",
+      "check-whitespace"
+    ],
+    "variable-name": [
+      true,
+      "ban-keywords",
+      "check-format",
+      "allow-leading-underscore"
+    ],
+    "whitespace": [
+      true,
+      "check-branch",
+      "check-decl",
+      "check-operator",
+      "check-separator",
+      "check-type"
+    ],
+    "member-ordering": [
+      true,
+      {
+        "order": [
+          "static-field",
+          "instance-field",
+          "constructor",
+          "static-method",
+          "instance-method"
+        ]
+      }
+    ],
+    "typedef-whitespace": [
+      true,
+      {
+        "call-signature": "nospace",
+        "index-signature": "nospace",
+        "parameter": "nospace",
+        "property-declaration": "nospace",
+        "variable-declaration": "nospace"
+      }
+    ]
+  },
+  "rulesDirectory": []
+}

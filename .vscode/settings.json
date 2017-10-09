@@ -1,0 +1,4 @@
+{
+  "sasslint.configFile": "./client/.sass-lint.yml",
+  "sasslint.resolvePathsRelativeToConfig": true
+}
