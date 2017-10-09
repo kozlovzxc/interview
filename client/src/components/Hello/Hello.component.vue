@@ -1,6 +1,9 @@
 <template>
   <div class="container">
-    hello!
+    <el-button @click="visible = true">Button</el-button>
+    <el-dialog v-model="visible" title="Hello world">
+      <p>Try Element</p>
+    </el-dialog>
   </div>
 </template>
 
