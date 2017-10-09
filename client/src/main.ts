@@ -3,12 +3,14 @@
 import Vue from 'vue';
 import App from './App.component.vue';
 import router from './router';
+import store from './store';
 
 Vue.config.productionTip = false;
 
 export default new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App },
 });
