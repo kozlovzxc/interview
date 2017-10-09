@@ -6,4 +6,4 @@
 </template>
 
 <script lang="ts" src="./App.component.ts"></script>
-<style lang="scss" src="./App.component.scss"></style>
+<style scoped lang="scss" src="./App.component.scss"></style>
