@@ -1,0 +1,29 @@
+version: '3'
+services:
+  db:
+    image: mongo
+    volumes:
+      - ./db:/data/db
+    restart: "always"
+  web:
+    build:
+       context: .
+       dockerfile: Dockerfile.dev
+    links:
+      - db
+    ports:
+      - "127.0.0.1:3000:3000"
+    restart: "always"
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./client:/usr/src/app/client
+      - ./server:/usr/src/app/server
+      - ./uploads:/usr/src/app/uploads
+    command: >
+      bash -c "
+      npm run build:dev --prefix /usr/src/app/client &
+      npm run build:dev --prefix /usr/src/app/server &
+      sleep 5 &&
+      npm run start:dev --prefix /usr/src/app/server
+      "
