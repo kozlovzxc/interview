@@ -30,11 +30,12 @@ case "$1" in
   component)
 
     COMPONENTDIR="$BASEDIR/src/components/$2"
+    COMPONENTNAME="${2##*\/}"
     mkdir -p "$COMPONENTDIR"
 
-    CLASS_NAME="${2^}"
+    CLASS_NAME="${COMPONENTNAME^}"
     OLDFILEPATH="$BASEDIR/scripts/templates/component/Template.component"
-    NEWFILEPATH="$COMPONENTDIR/$2.component"
+    NEWFILEPATH="$COMPONENTDIR/$COMPONENTNAME.component"
     cp "$OLDFILEPATH.scss" "$NEWFILEPATH.scss"
     cp "$OLDFILEPATH.ts" "$NEWFILEPATH.ts"
     cp "$OLDFILEPATH.vue" "$NEWFILEPATH.vue"
