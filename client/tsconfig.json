@@ -12,7 +12,6 @@
     "noImplicitAny": true,
     "noImplicitThis": true,
     "strictNullChecks": true,
-    "removeComments": true,
-    "suppressImplicitAnyIndexErrors": true
+    "removeComments": true
   }
 }
