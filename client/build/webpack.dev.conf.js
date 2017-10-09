@@ -1,35 +1,63 @@
+var path = require('path')
 var utils = require('./utils')
 var webpack = require('webpack')
 var config = require('../config')
 var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.base.conf')
+var CopyWebpackPlugin = require('copy-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
-var FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
-// add hot-reload related code to entry chunks
-Object.keys(baseWebpackConfig.entry).forEach(function (name) {
-  baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name])
-})
+var env = process.env.NODE_ENV === 'testing'
+  ? require('../config/test.env')
+  : config.dev.env
 
-module.exports = merge(baseWebpackConfig, {
+var webpackConfig = merge(baseWebpackConfig, {
   module: {
-    rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap })
+    rules: utils.styleLoaders({
+      sourceMap: config.dev.productionSourceMap,
+      extract: true
+    })
   },
-  // cheap-module-eval-source-map is faster for development
-  devtool: '#cheap-module-eval-source-map',
+  watch: true,
+  devtool: config.dev.productionSourceMap ? '#source-map' : false,
+  output: {
+    path: config.dev.assetsRoot,
+    filename: utils.assetsPath('js/[name].[chunkhash].js'),
+    chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
+  },
   plugins: [
+    // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
-      'process.env': config.dev.env
+      'process.env': env
     }),
-    // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
-    // https://github.com/ampedandwired/html-webpack-plugin
+    // extract css into its own file
+    new ExtractTextPlugin({
+      filename: utils.assetsPath('css/[name].[contenthash].css')
+    }),
+    // generate dist index.html with correct asset hash for caching.
+    // you can customize output by editing /index.html
+    // see https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
-      filename: 'index.html',
+      filename: process.env.NODE_ENV === 'testing'
+        ? 'index.html'
+        : config.dev.index,
       template: 'index.html',
-      inject: true
+      inject: true,
+      // necessary to consistently work with multiple chunks via CommonsChunkPlugin
+      chunksSortMode: 'dependency'
     }),
-    new FriendlyErrorsPlugin()
+    // keep module.id stable when vender modules does not change
+    new webpack.HashedModuleIdsPlugin(),
+    // copy custom static assets
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, '../static'),
+        to: config.dev.assetsSubDirectory,
+        ignore: ['.*']
+      }
+    ])
   ]
 })
+
+module.exports = webpackConfig
