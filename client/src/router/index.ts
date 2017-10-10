@@ -1,12 +1,12 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Hello from '@/components/Hello/Hello.component.vue';
+import SurveyPage from '@/components/SurveyPage/SurveyPage.component.vue';
 
 Vue.use(Router);
 
 export default new Router({
   mode: 'history',
   routes: [
-    { path: '/', component: Hello },
+    { path: '/', component: SurveyPage },
   ],
 });

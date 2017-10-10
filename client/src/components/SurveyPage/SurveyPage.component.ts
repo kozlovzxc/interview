@@ -3,6 +3,6 @@ import Component from 'vue-class-component';
 
 @Component({
 })
-export default class Hello extends Vue {
+export default class SurveyPage extends Vue {
   visible = false;
 }

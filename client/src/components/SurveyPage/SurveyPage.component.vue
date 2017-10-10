@@ -7,5 +7,5 @@
   </div>
 </template>
 
-<script lang="ts" src="./Hello.component.ts"></script>
-<style scoped lang="scss" src="./Hello.component.scss"></style>
+<script lang="ts" src="./SurveyPage.component.ts"></script>
+<style scoped lang="scss" src="./SurveyPage.component.scss"></style>
