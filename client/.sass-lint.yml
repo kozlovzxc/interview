@@ -25,7 +25,7 @@ rules:
   no-ids: 1
   no-important: 2
   hex-notation:
-    - 1
+    - 0
     -
       style: uppercase
   indentation:
@@ -40,7 +40,7 @@ rules:
         - margin
       ignore-custom-properties: true
   variable-for-property:
-    - 2
+    - 1
     -
       properties:
         - margin
