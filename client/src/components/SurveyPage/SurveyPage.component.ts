@@ -58,7 +58,7 @@ export default class SurveyPage extends Vue {
   nextQuestion() {
     this.player.record().reset();
     if (this.step++ > 2) {
-      this.step = 0;
+      this.step = 1;
     }
   }
 

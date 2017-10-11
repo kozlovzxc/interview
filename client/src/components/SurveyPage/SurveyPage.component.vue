@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="row mt-3">
-      <el-steps :space="100" :active="step" finish-status="success">
+      <el-steps :space="100" :active="step - 1" finish-status="success">
         <el-step title="Вопрос 1"></el-step>
         <el-step title="Вопрос 2"></el-step>
         <el-step title="Вопрос 3"></el-step>
