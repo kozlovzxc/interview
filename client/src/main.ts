@@ -2,11 +2,11 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import './styles.scss';
 
+import 'script-loader!../node_modules/webrtc-adapter/out/adapter.js';
+import 'script-loader!../node_modules/videojs-record/dist/videojs.record.js';
+
 import Vue from 'vue';
-import {
-  Button,
-  Dialog,
-} from 'element-ui';
+import ElementUi from 'element-ui';
 
 import App from './App.component.vue';
 import Header from './components/common/Header/Header.component.vue';
@@ -15,8 +15,7 @@ import store from './store';
 
 Vue.config.productionTip = false;
 
-Vue.use(Button);
-Vue.use(Dialog);
+Vue.use(ElementUi);
 
 Vue.component('app-header', Header);
 
